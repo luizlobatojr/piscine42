@@ -1,5 +1,6 @@
 #include <unistd.h>
-void	ft_printcomb()
+
+void	ft_print_space()
 {
 	write(1, ",", 1);
 	write(1, " ", 1);
@@ -27,7 +28,7 @@ void	ft_print_comb(void)
                 		ft_putchar(n[2] + '0');
                 		if (!(n[0] == 7 && n[1] == 8 && n[2] == 9))
                 		{
-					ft_printcomb();
+					ft_print_space();
 				}
 				n[2]++;
 			}
@@ -35,8 +36,9 @@ void	ft_print_comb(void)
 		}
 		n[0]++;
 	}
-}/*
+}
+
 int main()
 {
 	ft_print_comb();
-}*/
+}

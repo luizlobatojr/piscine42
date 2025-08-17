@@ -1,4 +1,21 @@
-#include <stdio.h>
+#include <unistd.h>
+
+void ft_putchar(char c)
+{
+    write(1, &c, 1);
+}
+
+void ft_putnbr(int n)
+{
+    if (n < 0)
+    {
+        ft_putchar('-');
+        n = -n;
+    }
+    if (n >= 10)
+        ft_putnbr(n / 10);
+    ft_putchar((n % 10) + '0');
+}
 
 void ft_sort_int_tab(int *tab, int size)
 {
@@ -9,7 +26,7 @@ void ft_sort_int_tab(int *tab, int size)
     while (i < size - 1)
     {
         j = 0;
-        while (j < size - 1 - i)
+        while (j < size - i - 1)
         {
             if (tab[j] > tab[j + 1])
             {
@@ -25,28 +42,30 @@ void ft_sort_int_tab(int *tab, int size)
 
 int main()
 {
-    int array[] = {5, 2, 8, 1, 3};
-    int size = sizeof(array) / sizeof(array[0]);
+    int tab[] = {5, 2, 9, 1, 5, 6};
+    int size = 6;
     int i = 0;
 
-    printf("Array original: ");
+    // Antes da ordenação
     while (i < size)
     {
-        printf("%d ", array[i]);
+        ft_putnbr(tab[i]);
+        ft_putchar(' ');
         i++;
     }
-    printf("\n");
+    ft_putchar('\n');
 
-    ft_sort_int_tab(array, size);
+    ft_sort_int_tab(tab, size);
 
+    // Depois da ordenação
     i = 0;
-    printf("Array ordenado: ");
     while (i < size)
     {
-        printf("%d ", array[i]);
+        ft_putnbr(tab[i]);
+        ft_putchar(' ');
         i++;
     }
-    printf("\n");
+    ft_putchar('\n');
 
     return 0;
 }
