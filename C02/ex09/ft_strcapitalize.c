@@ -1,42 +1,46 @@
-char *ft_strcapitalize(char *str)
+int	is_alpha_numeric(char c)
 {
-    int i = 0;
-    int new_word = 1;
-
-    while (str[i] != '\0')
-    {
-        // Converte letras maiúsculas em minúsculas
-        if (str[i] >= 'A' && str[i] <= 'Z')
-            str[i] += 32;
-
-        // Se for uma letra
-        if ((str[i] >= 'a' && str[i] <= 'z') || (str[i] >= '0' && str[i] <= '9'))
-        {
-            if (new_word && (str[i] >= 'a' && str[i] <= 'z'))
-                str[i] -= 32; // Torna maiúscula
-
-            new_word = 0;
-        }
-        else
-        {
-            new_word = 1; // Próximo caractere alfanumérico inicia nova palavra
-        }
-
-        i++;
-    }
-
-    return str;
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
+		return (1);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
+
+char	*ft_strcapitalize(char *str)
+{
+	int	i;
+	int	new_word;
+
+	i = 0;
+	new_word = 1;
+	while (str[i] != '\0')
+	{
+		if (is_alpha_numeric(str[i]))
+		{
+			if (new_word && (str[i] >= 'a' && str[i] <= 'z'))
+				str[i] = str[i] - 32;
+			else if (!new_word && (str[i] >= 'A' && str[i] <= 'Z'))
+				str[i] = str[i] + 32;
+			new_word = 0;
+		}
+		else
+			new_word = 1;
+		i++;
+	}
+	return (str);
+}
+/*
 #include <stdio.h>
 
 char *ft_strcapitalize(char *str);
 
 int main()
 {
-    char texto[] = "ola, tudo bem? 42palavras quarenta-e-duas; cinquenta+e+um";
-    printf("Antes : %s\n", texto);
-    ft_strcapitalize(texto);
-    printf("Depois: %s\n", texto);
-    return 0;
+char texto[] = "ola, tudo bem? 42palavras quarenta-e-duas; cinquenta+e+um";
+printf("Antes : %s\n", texto);
+ft_strcapitalize(texto);
+printf("Depois: %s\n", texto);
+return 0;
 }
-
+*/

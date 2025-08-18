@@ -37,8 +37,8 @@ void	ft_print_comb(void)
 		n[0]++;
 	}
 }
-
+/*
 int main()
 {
 	ft_print_comb();
-}
+}*/

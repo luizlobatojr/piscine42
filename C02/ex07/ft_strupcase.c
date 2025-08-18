@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 char	*ft_strupcase(char *str)
 {
 	int	i;
@@ -15,7 +13,7 @@ char	*ft_strupcase(char *str)
 	}
 	return (str);
 }
-
+/*
 int main(void)
 {
     char str1[] = "hello world!";
@@ -28,4 +26,4 @@ int main(void)
 
     return 0;
 }
-
+*/

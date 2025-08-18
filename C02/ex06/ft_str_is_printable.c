@@ -1,20 +1,17 @@
-#include <stdio.h>
-
-int	ft_str_is_printable()
+int	ft_str_is_printable(char *str)
 {
-	if (*str == '\0')
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
 	{
-		return (1);
-	}
-	while () 
-	{
-		if(*str < 32 || *str > 126)
+		if (str[i] < 32 || str[i] > 126)
 			return (0);
-		str++;
+		i++;
 	}
 	return (1);
 }
-
+/*
 int main(void)
 {
     char str1[] = "Hello, World!";
@@ -28,5 +25,4 @@ int main(void)
     printf("str4 is printable: %d\n", ft_str_is_printable(str4)); // 0
 
     return 0;
-}
-
+}*/

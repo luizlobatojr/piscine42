@@ -1,18 +1,19 @@
-#include <stdio.h>
-
 int	ft_str_is_numeric(char *str)
 {
-	if (*str == '\0')
+	int	i;
+
+	i = 0;
+	if (!str[0])
 		return (1);
-	while(*str)
+	while(str[i])
 	{
-		if(*str < '0' || *str > '9')
+		if(str[i] < '0' || str[i] > '9')
 			return (0);
-		str++;
+		i++;
 	}
 	return (1);
 }
-int main(void) 
+/*int main(void) 
 {
 	char str1[] = "12345";
 	char str2[] = "123A45";
@@ -23,4 +24,4 @@ int main(void)
 	printf("str3 is numeric: %d\n", ft_str_is_numeric(str3));
 	
 	return 0;
-}
+}*/

@@ -16,7 +16,7 @@ void	ft_print_numbers(void)
 		number++;
 	}
 }
-int main()
+/*int main()
 {
 	ft_print_numbers();
-}
+}*/
